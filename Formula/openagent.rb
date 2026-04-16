@@ -5,6 +5,7 @@ class Openagent < Formula
     branch: "main"
   version "0.1.0"
   license "MIT"
+  head "https://github.com/ask-sol/openagent.git", branch: "main"
 
   depends_on "node@20"
 
