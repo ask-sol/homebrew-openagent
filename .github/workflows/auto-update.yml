@@ -1,0 +1,25 @@
+name: Auto-update Formula
+
+on:
+  repository_dispatch:
+    types: [update-formula]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update formula commit reference
+        run: |
+          SHA="${{ github.event.client_payload.sha }}"
+          DATE=$(date +%Y%m%d)
+          sed -i "s/version \".*\"/version \"0.1.0-${DATE}\"/" Formula/openagent.rb
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Auto-update formula from ask-sol/openagent@${GITHUB_SHA:0:7}"
+          git push
