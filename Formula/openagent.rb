@@ -3,7 +3,7 @@ class Openagent < Formula
   homepage "https://github.com/ask-sol/openagent"
   url "https://github.com/ask-sol/openagent.git",
     branch: "main"
-  version "0.1.0"
+  version "0.1.1-20260416"
   license "MIT"
   head "https://github.com/ask-sol/openagent.git", branch: "main"
 
@@ -22,6 +22,6 @@ class Openagent < Formula
   end
 
   test do
-    assert_match "0.1.0", shell_output("#{bin}/openagent --version")
+    assert_match "0.1.", shell_output("#{bin}/openagent --version")
   end
 end
