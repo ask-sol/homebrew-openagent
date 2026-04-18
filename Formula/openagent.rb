@@ -4,7 +4,7 @@ class Openagent < Formula
   url "https://github.com/ask-sol/openagent.git",
     branch: "main"
   version "0.1.26-20260417"
-  license "MIT"
+  license "Apache-2.0"
   head "https://github.com/ask-sol/openagent.git", branch: "main"
 
   depends_on "node@20"
@@ -13,7 +13,7 @@ class Openagent < Formula
     system "npm", "install", *std_npm_args
     system "npm", "install", "tsx"
 
-    libexec.install Dir["*"]
+    libexec.install Dir["*"] - Dir["bin"]
 
     (bin/"openagent").write <<~SH
       #!/bin/bash
