@@ -3,7 +3,7 @@ class Openagent < Formula
   homepage "https://github.com/ask-sol/openagent"
   url "https://github.com/ask-sol/openagent.git",
     branch: "main"
-  version "0.1.60-20260510"
+  version "0.1.62-20260516"
   license "MIT"
   head "https://github.com/ask-sol/openagent.git", branch: "main"
 
